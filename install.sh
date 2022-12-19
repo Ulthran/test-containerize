@@ -3,7 +3,7 @@ __conda_path="${HOME}/miniconda3"
 __old_path=$PATH
 PATH=$PATH:${__conda_path}/bin
 
-local tmpdir=$(mktemp -d)
+tmpdir=$(mktemp -d)
 echo "Downloading miniconda..."
 wget -nv ${__conda_url} -O ${tmpdir}/miniconda.sh
 echo "Installing miniconda..."
