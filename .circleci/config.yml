@@ -31,7 +31,10 @@ jobs:
 
       - run:
           name: Run tests
-          command: snakemake -c1 --use-singularity
+          command: |
+            CONDA_BASE=$(conda info --base)
+            source $CONDA_BASE/etc/profile.d/conda.sh
+            snakemake -c1 --use-singularity
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
