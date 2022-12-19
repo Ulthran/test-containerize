@@ -14,9 +14,16 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: Build and push Docker image
+          command: |
+            export TAG=0.0.0
+            docker build -t ctbushman/test-containerize:$TAG .
+            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker push ctbushman/test-containerize:$TAG
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
