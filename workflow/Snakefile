@@ -1,0 +1,4 @@
+include: "rules/TEST.smk"
+
+rule all:
+    input: "output.txt"

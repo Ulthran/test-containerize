@@ -1,0 +1,4 @@
+channels:
+  - conda-forge
+depencies:
+  - python=3.10
