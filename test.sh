@@ -13,4 +13,5 @@ rm ${tmpdir}/miniconda.sh
 #conda install --yes --quiet -n base -c conda-forge mamba
 conda install --yes --quiet -n base -c bioconda -c conda-forge snakemake
 
+echo "TEST" > test.txt
 snakemake -c1 --use-singularity
