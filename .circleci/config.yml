@@ -26,15 +26,13 @@ jobs:
             docker push ctbushman/test-containerize:$TAG
 
       - run:
-          name: Install dependencies
-          command: bash install.sh
-
-      - run:
-          name: Run tests
+          name: Run test
           command: |
+            bash install.sh
             CONDA_BASE=$(conda info --base)
             source $CONDA_BASE/etc/profile.d/conda.sh
             snakemake -c1 --use-singularity
+            
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
