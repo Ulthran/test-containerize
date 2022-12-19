@@ -11,4 +11,4 @@ bash ${tmpdir}/miniconda.sh -b -p ${__conda_path}
 rm ${tmpdir}/miniconda.sh
 
 conda install --yes --quiet -n base -c conda-forge mamba
-mamba install --yes --quiet -n base -c bioconda snakemake=3.17
+conda install --yes --quiet -n base -c bioconda snakemake=7
