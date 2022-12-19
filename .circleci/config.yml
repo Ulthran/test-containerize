@@ -28,10 +28,7 @@ jobs:
       - run:
           name: Run test
           command: |
-            bash install.sh
-            CONDA_BASE=$(conda info --base)
-            source $CONDA_BASE/etc/profile.d/conda.sh
-            snakemake -c1 --use-singularity
+            bash test.sh
             
 
 # Invoke jobs via workflows
