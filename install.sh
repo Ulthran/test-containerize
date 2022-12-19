@@ -12,3 +12,6 @@ rm ${tmpdir}/miniconda.sh
 
 #conda install --yes --quiet -n base -c conda-forge mamba
 conda install --yes --quiet -n base -c bioconda -c conda-forge snakemake
+
+CONDA_BASE=$(conda info --base) # see https://github.com/conda/conda/issues/7980
+source $CONDA_BASE/etc/profile.d/conda.sh
