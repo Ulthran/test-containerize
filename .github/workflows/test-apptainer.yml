@@ -25,4 +25,4 @@ jobs:
           conda install -c conda-forge -c bioconda snakemake=8
           touch test.txt
 
-          snakemake --snakefile workflow/Snakefile --conda-prefix .snakemake/ --conda-frontend conda --software-deployment-method apptainer all
+          snakemake --snakefile workflow/Snakefile --software-deployment-method apptainer --conda-prefix .snakemake/ --conda-frontend conda all
