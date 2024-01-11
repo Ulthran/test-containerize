@@ -1,4 +1,4 @@
-container: "docker://ctbushman/test-containerize:0.0.0"
+containerized: "docker://ctbushman/test-containerize:0.0.0"
 
 include: "rules/TEST.smk"
 

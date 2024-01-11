@@ -1,0 +1,28 @@
+name: Test Apptainer
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  test-apptainer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: s-weigand/setup-conda@v1.2.1
+      - uses: eWaterCycle/setup-apptainer@v2
+        with:
+          apptainer-version: 1.1.2
+
+      - name: Run Test
+        shell: bash
+        run: |
+          cd $GITHUB_WORKSPACE
+          conda install -c conda-forge -c bioconda snakemake=8
+          touch test.txt
+
+          snakemake --snakefile workflow/Snakefile --conda-prefix .snakemake/ --conda-frontend conda --software-deployment-method apptainer all
